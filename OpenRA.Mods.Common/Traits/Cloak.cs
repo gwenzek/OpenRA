@@ -135,7 +135,11 @@ namespace OpenRA.Mods.Common.Traits
 
 		void ITick.Tick(Actor self)
 		{
-			if (!IsTraitDisabled)
+			if (IsTraitDisabled)
+			{
+				Uncloak();
+			}
+			else
 			{
 				if (remainingTime > 0 && !isDocking)
 					remainingTime--;
